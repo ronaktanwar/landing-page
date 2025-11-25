@@ -112,7 +112,10 @@ export default function RestaurantLanding() {
             </button>
             <button
               className="bg-amber-600 hover:bg-amber-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105"
-              onClick={() => despia('takescreenshot://')}
+              onClick={async () => {
+                console.log('take ss is clicked');
+                await despia('takescreenshot://');
+              }}
             >
               Take Screenshot
             </button>
