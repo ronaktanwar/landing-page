@@ -14,10 +14,10 @@ export default function RestaurantLanding() {
   };
 
   const handleTakeSs = () => {
+    despia('lighthaptic://');
     console.log('first');
     despia('takescreenshot://');
     console.log('second');
-    
   };
 
   return (
