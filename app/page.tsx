@@ -13,6 +13,13 @@ export default function RestaurantLanding() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleTakeSs = () => {
+    console.log('first');
+    despia('takescreenshot://');
+    console.log('second');
+    
+  };
+
   return (
     <div className="w-full bg-background text-foreground">
       {/* Navigation */}
@@ -112,10 +119,7 @@ export default function RestaurantLanding() {
             </button>
             <button
               className="bg-amber-600 hover:bg-amber-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105"
-              onClick={async () => {
-                console.log('take ss is clicked');
-                await despia('takescreenshot://');
-              }}
+              onClick={handleTakeSs}
             >
               Take Screenshot
             </button>
