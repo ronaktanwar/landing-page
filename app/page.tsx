@@ -2,6 +2,7 @@
 
 import { Menu, X, MapPin, Clock, Phone } from 'lucide-react';
 import { useState } from 'react';
+import despia from 'despia-native';
 
 export default function RestaurantLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -105,9 +106,17 @@ export default function RestaurantLanding() {
           <p className="text-lg md:text-2xl mb-8 text-amber-100 max-w-2xl mx-auto">
             Experience culinary excellence in an atmosphere of refined elegance
           </p>
-          <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105">
-            Reserve Your Seat
-          </button>
+          <div className="flex items-center gap-4 justify-center">
+            <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105">
+              Reserve Your Seat
+            </button>
+            <button
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105"
+              onClick={() => despia('takescreenshot://')}
+            >
+              Take Screenshot
+            </button>
+          </div>
         </div>
       </section>
 
