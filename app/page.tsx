@@ -1,11 +1,13 @@
 'use client';
-
 import { Menu, X, MapPin, Clock, Phone } from 'lucide-react';
-import { useState } from 'react';
-import despia from 'despia-native';
+import { useEffect, useState } from 'react';
+import webtonative from 'webtonative';
+
+// Initialize the SDK
 
 export default function RestaurantLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [initialized, setInitialized] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
@@ -13,12 +15,16 @@ export default function RestaurantLanding() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleTakeSs = () => {
-    despia('lighthaptic://');
-    console.log('first');
-    despia('takescreenshot://');
-    console.log('second');
+  const handleChangeStatusBarColor = () => {
+    webtonative.statusBar({ color: '#0e34a0', style: 'dark' });
   };
+
+  // const handleTakeSs = () => {
+  //   despia('lighthaptic://');
+  //   console.log('first');
+  //   despia('takescreenshot://');
+  //   console.log('second');
+  // };
 
   return (
     <div className="w-full bg-background text-foreground">
@@ -87,6 +93,12 @@ export default function RestaurantLanding() {
             <button className="w-full bg-amber-600 hover:bg-amber-700 px-6 py-2 rounded-lg font-semibold transition">
               Book a Table
             </button>
+            <button
+              onClick={handleChangeStatusBarColor}
+              className="w-full bg-amber-600 hover:bg-amber-700 px-6 py-2 rounded-lg font-semibold transition"
+            >
+              Change Status Bar Color
+            </button>
           </div>
         )}
       </nav>
@@ -119,7 +131,7 @@ export default function RestaurantLanding() {
             </button>
             <button
               className="bg-amber-600 hover:bg-amber-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105"
-              onClick={handleTakeSs}
+              // onClick={handleTakeSs}
             >
               Take Screenshot
             </button>

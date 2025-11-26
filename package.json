@@ -9,11 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@revenuecat/purchases-js": "^1.18.3",
     "despia-native": "^1.0.14",
     "lucide-react": "^0.554.0",
     "next": "16.0.4",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "webtonative": "^1.0.78-beta.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
