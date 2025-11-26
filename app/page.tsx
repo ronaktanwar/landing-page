@@ -2,6 +2,15 @@
 import { Menu, X, MapPin, Clock, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import webtonative from 'webtonative';
+import {
+  configure,
+  getCustomerInfo,
+  isInitialized,
+  makePurchase,
+  restorePurchase,
+  setUserId,
+  showPaywall,
+} from 'webtonative/RevenueCat';
 
 // Initialize the SDK
 
@@ -17,6 +26,18 @@ export default function RestaurantLanding() {
 
   const handleChangeStatusBarColor = () => {
     webtonative.statusBar({ color: '#0e34a0', style: 'dark' });
+  };
+  const handleOpenRevenueCat = () => {
+    const options = {
+      apiKey: 'test_YmguIsZdZPNbNDyQCgRBKhnqYSo',
+      userId: '23r23r23r23rt',
+      callback: (val: any) => console.log(val),
+    };
+    configure(options);
+    showPaywall({
+      offeringId: 'default',
+      callback: (val: any) => console.log(val),
+    });
   };
 
   // const handleTakeSs = () => {
@@ -98,6 +119,12 @@ export default function RestaurantLanding() {
               className="w-full bg-amber-600 hover:bg-amber-700 px-6 py-2 rounded-lg font-semibold transition"
             >
               Change Status Bar Color
+            </button>
+            <button
+              onClick={handleOpenRevenueCat}
+              className="w-full bg-amber-600 hover:bg-amber-700 px-6 py-2 rounded-lg font-semibold transition"
+            >
+              RevenueCat
             </button>
           </div>
         )}
