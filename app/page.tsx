@@ -29,13 +29,13 @@ export default function RestaurantLanding() {
   };
   const handleOpenRevenueCat = () => {
     const options = {
-      apiKey: 'test_YmguIsZdZPNbNDyQCgRBKhnqYSo',
+      apiKey: 'appl_LGrOnIeMtDKnhPPfWrTMgWJfixl',
       userId: '23r23r23r23rt',
       callback: (val: any) => console.log(val),
     };
     configure(options);
     showPaywall({
-      offeringId: 'default',
+      offeringId: 'sale1',
       callback: (val: any) => console.log(val),
     });
   };
